@@ -3,5 +3,38 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "@binom/sdk-prism": {
+      "projectType": "library",
+      "root": "projects/binom/sdk-prism",
+      "sourceRoot": "projects/binom/sdk-prism/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/binom/sdk-prism/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/binom/sdk-prism/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/binom/sdk-prism/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/binom/sdk-prism/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
   }
 }
