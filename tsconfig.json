@@ -3,6 +3,9 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
+      "@binom/sdk-prism/*": [
+        "./dist/binom/sdk-prism/*"
+      ],
       "@binom/sdk-prism": [
         "./dist/binom/sdk-prism"
       ]
