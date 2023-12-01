@@ -1,1 +1,57 @@
-<p>bn-prism-box works!</p>
+<div class="bn-prism-box regular-border" fullscreen #fullscreen="fullscreen" >
+    <mat-toolbar class="bn-prism-box-toolbar" [class.bn-prism-box-toolbar-hidden]="hidden">
+        <button class="bn-button-fa"  mat-icon-button *ngIf="showHideButton" (click)="hidden=!hidden" [matTooltipDisabled]="!enableToolTips" [disabled]="!fullscreen" [matTooltip]="hidden?'tooltips.'+tooltipTag+'showDiv':'tooltips.'+tooltipTag+'hideDiv'">
+             <i class="fas fa-angle-{{hidden?'down':'up'}}"></i>
+        </button>
+        <span class="color-accent">{{title}}</span>
+        <span class="toolbar-spacer"></span>
+        <span [hidden]="hidden">
+            @if(highlightInput){
+                <button mat-icon-button (click)="change()">
+                    <bn-icon type="fas" matTooltip="{{'tooltips.'+tooltipTag+'highlightCodeLines' | translate}}" [matTooltipDisabled]="!enableToolTips" icon="fa-highlighter"></bn-icon></button>
+                
+                <span class="bn-prism-box-input-space">
+                <input matInput class="bn-prism-box-input" [(ngModel)]="highlightLine" />
+                </span>
+            }
+            <button class="bn-button-fa" mat-icon-button matTooltip="{{'tooltips.copyToClipBoard'  | translate }}"   [cdkCopyToClipboard]="code" [matTooltipDisabled]="!enableToolTips">
+                <i class="fas fa-clipboard"></i>
+            </button>
+            @if(allowFullScreen){
+                @if(fs){
+                    <button class="bn-button-fa" mat-icon-button (click)="fullscreen.minimize();fs=false" [matTooltipDisabled]="!enableToolTips" matTooltip="{{'tooltips.'+tooltipTag+'minimizeDiv' | translate }}"> 
+                        <i class="fas fa-window-minimize"></i>
+                    </button>
+                } @else (){
+                    <button class="bn-button-fa" mat-icon-button (click)="fullscreen.maximize();fs=true" matTooltip="{{'tooltips.'+tooltipTag+'maximizeDiv' | translate}}" [matTooltipDisabled]="!enableToolTips" [disabled]="hidden"> 
+                        <i class="fas fa-window-maximize"></i>
+                    </button>
+                }
+            }
+        </span>
+    </mat-toolbar>
+    <div class="bn-prism-box-code-wrapper" [hidden]="hidden" >
+        <pre  id="{{itemId}}" [attr.data-line]="highlightLine" [class.linkable-line-numbers]="linkableLineNumbers">
+            <code bnPrismCode [language]="language" [toggle]="toggle" [innerHTML]="code | bnhighlight:searchText"></code>
+        </pre>   
+    </div>
+    @if(showLanguage){
+        <div  class="bn-prism-box-language-wrapper accent-bg" [matTooltip]="language">
+            @if(language === 'javascript'){ <i class='fab fa-js'></i> } 
+            @else if(language === 'css'){ <i  class="fab fa-css3"></i>} 
+            @else if(language === 'markup'){ <i class="fab fa-html5"></i>} 
+            @else if(language === 'python'){ <i class="fab fa-python"></i>} 
+            @else if(language === 'sass'){ <i class="fab fa-sass"></i>} 
+            @else if(language === 'javascript'){ <i class='fab fa-js'></i> } 
+            @else if(language === 'java'){ <i class="fab fa-java"></i>} 
+            @else if(language === 'typescript'){ <span class="bn-prism-box-language" >TS</span>} 
+            @else if(language === 'sql'){  <span class="bn-prism-box-language">SQL</span>} 
+            @else if(language === 'scss'){ <span class="bn-prism-box-language" >scss</span>} 
+            @else if(language === 'yaml'){ <span class="bn-prism-box-language" >yaml</span> } 
+        </div>
+    }
+</div>
+
+
+
+

@@ -32,7 +32,7 @@ export class AppComponent {
 
     {
       title: 'components',
-      data: ['abc-buttons','buttonset-move', 'buttonset-sort','counter-button','mini-header','mini-search','phone-inputs','picklist','sort-menu']
+      data: ['abc-buttons']
     },
   ]
 

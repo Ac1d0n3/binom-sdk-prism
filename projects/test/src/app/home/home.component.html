@@ -1,0 +1,12 @@
+
+<button mat-button (click)="toggle=!toggle">CodeView {{toggle}}</button>
+<br>
+<pre>
+    <code bnPrismCode language="javascript" [toggle]="toggle">{{code}}</code>
+</pre>
+
+<br>
+<bn-prism-box 
+title="Demo CodeBox" [highlightInput]="true" [language]="language" itemId="foo" showLanguage [code]="code"></bn-prism-box>
+<br>
+
