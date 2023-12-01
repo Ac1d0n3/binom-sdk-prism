@@ -1,8 +1,6 @@
 @import "prismjs/plugins/line-numbers/prism-line-numbers";
 @import "prismjs/plugins/line-highlight/prism-line-highlight";
 
-
-
 pre[class*="language-"]>code {
     position: relative;
     margin: 0;
@@ -34,14 +32,10 @@ pre[class*="language-"] {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     overflow: auto;
-
     white-space: pre-line !important;
 }
 
-.bn-prism-box-input, 
-.bn-emoji-search, 
-.bn-specialchar-search,
-.bn-icons-search{
+.bn-prism-box-input{
     margin-bottom: 5px;
     padding: 5px;
     border: none;

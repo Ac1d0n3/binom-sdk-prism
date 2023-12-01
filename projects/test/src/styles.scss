@@ -1,13 +1,12 @@
 @import '../../../node_modules/@binom/sdk-core/styles/core.scss';
 @import '../../../node_modules/@binom/sdk-core/styles/material-icons.scss';
 
-.regular-border,.picklist-item{
-    border-color: dimgray !important;
-  }
+@import '../../../dist/binom/sdk-prism/styles/sdk-prism.scss';
 
 
-@import '../../../dist/binom/sdk-prism/styles/prism.scss';
-
+.regular-border{
+  border-color: dimgray !important;
+}
 
 .bn-fullscreen {
   width: 100vw !important;
